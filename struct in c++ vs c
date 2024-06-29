@@ -1,0 +1,145 @@
+### Struct in C vs C++
+
+#### Struct in C
+
+- **Definition**: In C, a `struct` is a user-defined data type that groups related variables of different types.
+- **Syntax**:
+
+  ```c
+  struct Person {
+      char name[50];
+      int age;
+  };
+  ```
+
+- **Usage**: To create and use a `struct` in C, you need to declare variables of the `struct` type:
+
+  ```c
+  struct Person person1;
+  ```
+
+- **Access Modifiers**: All members of a `struct` in C are public by default.
+- **No Member Functions**: C `struct`s cannot have member functions.
+
+#### Struct in C++
+
+- **Definition**: In C++, a `struct` is similar to a class but with different default access control.
+- **Syntax**:
+
+  ```cpp
+  struct Person {
+      std::string name;
+      int age;
+      
+      void printInfo() {
+          std::cout << "Name: " << name << ", Age: " << age << std::endl;
+      }
+  };
+  ```
+
+- **Usage**: Creating and using a `struct` in C++ is similar to C:
+
+  ```cpp
+  Person person1;
+  ```
+
+- **Access Modifiers**: Members of a `struct` in C++ are public by default, but you can specify private and protected members.
+- **Member Functions**: C++ `struct`s can have member functions, constructors, destructors, and other features similar to classes.
+
+#### Inheritance of Structs in C++
+
+In C++, `struct`s can inherit from other `struct`s or classes. This is not possible in C.
+
+**Example**:
+
+```cpp
+struct Base {
+    int baseVar;
+};
+
+struct Derived : public Base {
+    int derivedVar;
+};
+```
+
+Usage:
+
+```cpp
+Derived d;
+d.baseVar = 10;
+d.derivedVar = 20;
+std::cout << "Base Var: " << d.baseVar << ", Derived Var: " << d.derivedVar << std::endl;
+```
+
+### Summary
+
+- **C Struct**:
+  - Groups related variables.
+  - Public members by default.
+  - No member functions.
+  - No inheritance.
+
+- **C++ Struct**:
+  - Similar to a class with default public access.
+  - Can have member functions.
+  - Supports inheritance.
+
+### Example Comparison
+
+```c
+// C example
+#include <stdio.h>
+
+struct Person {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Person person1 = {"Alice", 30};
+    printf("Name: %s, Age: %d\n", person1.name, person1.age);
+    return 0;
+}
+```
+
+```cpp
+// C++ example
+#include <iostream>
+#include <string>
+
+struct Person {
+    std::string name;
+    int age;
+    
+    void printInfo() {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    }
+};
+
+int main() {
+    Person person1 = {"Alice", 30};
+    person1.printInfo();
+    return 0;
+}
+```
+
+```cpp
+// C++ inheritance example
+#include <iostream>
+
+struct Base {
+    int baseVar;
+};
+
+struct Derived : public Base {
+    int derivedVar;
+};
+
+int main() {
+    Derived d;
+    d.baseVar = 10;
+    d.derivedVar = 20;
+    std::cout << "Base Var: " << d.baseVar << ", Derived Var: " << d.derivedVar << std::endl;
+    return 0;
+}
+```

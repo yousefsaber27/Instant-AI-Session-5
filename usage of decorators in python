@@ -1,0 +1,216 @@
+### Decorators in Python
+
+Decorators are a powerful feature in Python that allow you to modify the behavior of a function or class method. They are used to wrap another function in order to extend the behavior of the wrapped function, without permanently modifying it.
+
+### Basic Decorator Syntax
+
+A decorator is typically a function that takes another function as an argument, adds some kind of functionality, and returns another function.
+
+**Example**:
+
+```python
+def decorator_function(original_function):
+    def wrapper_function(*args, **kwargs):
+        print(f"Wrapper executed before {original_function.__name__}")
+        return original_function(*args, **kwargs)
+    return wrapper_function
+
+@decorator_function
+def display():
+    print("Display function executed")
+
+display()
+```
+
+Output:
+
+```
+Wrapper executed before display
+Display function executed
+```
+
+### Using Multiple Decorators
+
+You can apply multiple decorators to a single function by stacking them.
+
+**Example**:
+
+```python
+def decorator1(original_function):
+    def wrapper1(*args, **kwargs):
+        print("Decorator 1")
+        return original_function(*args, **kwargs)
+    return wrapper1
+
+def decorator2(original_function):
+    def wrapper2(*args, **kwargs):
+        print("Decorator 2")
+        return original_function(*args, **kwargs)
+    return wrapper2
+
+@decorator1
+@decorator2
+def display():
+    print("Display function executed")
+
+display()
+```
+
+Output:
+
+```
+Decorator 1
+Decorator 2
+Display function executed
+```
+
+### Decorating Functions with Arguments
+
+Decorators can also handle functions with arguments.
+
+**Example**:
+
+```python
+def decorator_function(original_function):
+    def wrapper_function(*args, **kwargs):
+        print(f"Wrapper executed before {original_function.__name__}")
+        return original_function(*args, **kwargs)
+    return wrapper_function
+
+@decorator_function
+def display_info(name, age):
+    print(f"Display_info ran with arguments ({name}, {age})")
+
+display_info("Alice", 30)
+```
+
+Output:
+
+```
+Wrapper executed before display_info
+Display_info ran with arguments (Alice, 30)
+```
+
+### Decorating Methods in Classes
+
+Decorators can be used with methods in classes as well.
+
+**Example**:
+
+```python
+def decorator_function(original_function):
+    def wrapper_function(*args, **kwargs):
+        print(f"Wrapper executed before {original_function.__name__}")
+        return original_function(*args, **kwargs)
+    return wrapper_function
+
+class DisplayClass:
+    @decorator_function
+    def display_method(self):
+        print("Display method executed")
+
+obj = DisplayClass()
+obj.display_method()
+```
+
+Output:
+
+```
+Wrapper executed before display_method
+Display method executed
+```
+
+### Decorators with Arguments
+
+You can also create decorators that accept arguments.
+
+**Example**:
+
+```python
+def decorator_with_arguments(decorator_arg1, decorator_arg2):
+    def decorator_function(original_function):
+        def wrapper_function(*args, **kwargs):
+            print(f"Decorator arguments: {decorator_arg1}, {decorator_arg2}")
+            return original_function(*args, **kwargs)
+        return wrapper_function
+    return decorator_function
+
+@decorator_with_arguments(10, 20)
+def display():
+    print("Display function executed")
+
+display()
+```
+
+Output:
+
+```
+Decorator arguments: 10, 20
+Display function executed
+```
+
+### Practical Use Cases
+
+1. **Logging**:
+
+```python
+def logger(original_function):
+    def wrapper_function(*args, **kwargs):
+        print(f"Logging: {original_function.__name__} was called")
+        return original_function(*args, **kwargs)
+    return wrapper_function
+
+@logger
+def display(name):
+    print(f"Display function executed with argument {name}")
+
+display("Alice")
+```
+
+2. **Timing**:
+
+```python
+import time
+
+def timer(original_function):
+    def wrapper_function(*args, **kwargs):
+        start_time = time.time()
+        result = original_function(*args, **kwargs)
+        end_time = time.time()
+        print(f"{original_function.__name__} ran in: {end_time - start_time} sec")
+        return result
+    return wrapper_function
+
+@timer
+def display(name):
+    time.sleep(1)
+    print(f"Display function executed with argument {name}")
+
+display("Alice")
+```
+
+3. **Authorization**:
+
+```python
+def requires_authentication(original_function):
+    def wrapper_function(user, *args, **kwargs):
+        if user["authenticated"]:
+            return original_function(user, *args, **kwargs)
+        else:
+            print("Authentication required")
+            return None
+    return wrapper_function
+
+@requires_authentication
+def display(user):
+    print(f"Display function executed for {user['name']}")
+
+user = {"name": "Alice", "authenticated": True}
+display(user)
+```
+
+Output:
+
+```
+Display function executed for Alice
+```

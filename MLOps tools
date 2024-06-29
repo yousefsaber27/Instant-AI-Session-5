@@ -1,0 +1,115 @@
+### MLOps Tools
+
+Here is a comprehensive list of MLOps tools categorized by their primary functionality:
+
+#### Machine Learning Platforms
+- **TensorFlow Extended (TFX)**
+- **Azure Machine Learning**
+- **Google Cloud AI Platform**
+- **Amazon SageMaker**
+- **Databricks**
+- **DataRobot**
+- **H2O.ai**
+
+#### Model Development and Experimentation
+- **MLflow**
+- **Weights & Biases**
+- **Neptune.ai**
+- **Comet**
+- **DVC (Data Version Control)**
+- **Kubeflow Pipelines**
+- **Polyaxon**
+- **Optuna**
+
+#### Model Deployment
+- **Seldon Core**
+- **TensorFlow Serving**
+- **TorchServe**
+- **KubeFlow Serving**
+- **MLflow Models**
+- **Bentoml**
+- **FastAPI**
+- **Flask**
+
+#### Model Monitoring and Management
+- **WhyLabs**
+- **Evidently AI**
+- **Arize AI**
+- **Fiddler**
+- **Superwise.ai**
+- **Aporia**
+- **Sagemaker Model Monitor**
+- **Datadog**
+
+#### Feature Stores
+- **Tecton**
+- **Feast (Feature Store for Machine Learning)**
+- **Hopsworks**
+- **Amazon SageMaker Feature Store**
+- **Databricks Feature Store**
+
+#### Data Versioning and Lineage
+- **DVC (Data Version Control)**
+- **Pachyderm**
+- **LakeFS**
+- **MLflow**
+- **Delta Lake (Databricks)**
+
+#### Workflow Orchestration
+- **Apache Airflow**
+- **KubeFlow Pipelines**
+- **Prefect**
+- **Dagster**
+- **Metaflow (Netflix)**
+
+#### Model Explainability
+- **SHAP (SHapley Additive exPlanations)**
+- **LIME (Local Interpretable Model-agnostic Explanations)**
+- **Alibi**
+- **IBM AI Explainability 360**
+- **Google Cloud Explainable AI**
+
+#### Continuous Integration / Continuous Deployment (CI/CD)
+- **Jenkins**
+- **GitLab CI/CD**
+- **Travis CI**
+- **CircleCI**
+- **Azure Pipelines**
+- **GitHub Actions**
+- **Spinnaker**
+
+#### Hyperparameter Tuning
+- **Optuna**
+- **Ray Tune**
+- **Hyperopt**
+- **Google Vizier**
+- **Katib (KubeFlow)**
+
+#### Data Labeling
+- **Labelbox**
+- **Scale AI**
+- **Snorkel**
+- **Amazon SageMaker Ground Truth**
+- **SuperAnnotate**
+
+#### Model Registry
+- **MLflow Model Registry**
+- **Neptune.ai**
+- **SageMaker Model Registry**
+- **Comet**
+- **Weights & Biases Artifacts**
+
+#### Monitoring and Logging
+- **Prometheus**
+- **Grafana**
+- **ELK Stack (Elasticsearch, Logstash, Kibana)**
+- **Datadog**
+- **Splunk**
+
+#### Security and Compliance
+- **AWS IAM (Identity and Access Management)**
+- **Azure Security Center**
+- **Google Cloud IAM**
+- **Privacera**
+
+This list includes many of the prominent tools used in the MLOps ecosystem to streamline the end-to-end machine learning lifecycle, from development and experimentation to deployment, monitoring, and management.

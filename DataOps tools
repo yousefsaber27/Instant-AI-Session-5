@@ -1,0 +1,122 @@
+### DataOps Tools
+
+Here is a comprehensive list of DataOps tools categorized by their primary functionality:
+
+#### Data Integration and ETL (Extract, Transform, Load)
+- **Apache NiFi**
+- **Talend**
+- **Informatica**
+- **AWS Glue**
+- **Azure Data Factory**
+- **Google Cloud Dataflow**
+- **Apache Kafka**
+- **Apache Flink**
+- **Apache Airflow**
+- **Stitch**
+- **Fivetran**
+- **Matillion**
+
+#### Data Quality and Data Governance
+- **Talend Data Quality**
+- **Informatica Data Quality**
+- **Collibra**
+- **Alation**
+- **Ataccama**
+- **Trifacta**
+- **Great Expectations**
+- **Apache Griffin**
+
+#### Data Catalogs and Metadata Management
+- **Apache Atlas**
+- **Collibra**
+- **Alation**
+- **Informatica Enterprise Data Catalog**
+- **Amundsen (Lyft)**
+- **DataHub (LinkedIn)**
+- **Google Cloud Data Catalog**
+- **Azure Purview**
+
+#### Data Pipelines and Workflow Orchestration
+- **Apache Airflow**
+- **Luigi**
+- **Prefect**
+- **Dagster**
+- **KubeFlow**
+- **Argo Workflows**
+
+#### Data Versioning and Lineage
+- **DVC (Data Version Control)**
+- **Pachyderm**
+- **Delta Lake (Databricks)**
+- **LakeFS**
+- **MLflow**
+- **DataHub**
+- **Marquez**
+
+#### Monitoring and Observability
+- **Datadog**
+- **Prometheus**
+- **Grafana**
+- **Splunk**
+- **ELK Stack (Elasticsearch, Logstash, Kibana)**
+- **New Relic**
+- **Bigeye**
+- **Monte Carlo Data**
+
+#### Data Warehousing
+- **Snowflake**
+- **Google BigQuery**
+- **Amazon Redshift**
+- **Azure Synapse Analytics**
+- **Teradata**
+- **Cloudera Data Platform**
+- **Databricks**
+
+#### Data Storage and Lakehouse
+- **Amazon S3**
+- **Azure Data Lake Storage (ADLS)**
+- **Google Cloud Storage**
+- **Delta Lake (Databricks)**
+- **Apache Hudi**
+- **Apache Iceberg**
+
+#### Data Privacy and Security
+- **Privacera**
+- **BigID**
+- **Immuta**
+- **Securiti.ai**
+- **OneTrust DataDiscovery**
+
+#### DataOps Platforms
+- **DataKitchen**
+- **StreamSets**
+- **Unravel Data**
+- **Qubole**
+- **Ascend.io**
+
+#### BI and Analytics
+- **Tableau**
+- **Looker**
+- **Power BI**
+- **Qlik**
+- **Mode Analytics**
+- **Metabase**
+- **Superset (Apache)**
+
+#### Data Science and Machine Learning
+- **Databricks**
+- **MLflow**
+- **Kubeflow**
+- **TensorFlow Extended (TFX)**
+- **H2O.ai**
+- **DataRobot**
+- **SageMaker (AWS)**
+
+#### Data Collaboration and Sharing
+- **Data.world**
+- **Snowflake Data Marketplace**
+- **Delta Sharing**
+- **Google Cloud Analytics Hub**
+- **Azure Data Share**
+
+This list includes many of the prominent tools used in the DataOps ecosystem to enable efficient, reliable, and scalable data operations across the data lifecycle.

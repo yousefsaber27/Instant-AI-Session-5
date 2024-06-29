@@ -1,0 +1,81 @@
+### Inline Functions
+
+An inline function is a function defined inside the main function. It helps in reducing function call overhead. In Python, you can achieve something similar using nested functions.
+
+**Example:**
+
+```python
+def main_function():
+    def inline_function(x):
+        return x * x
+    
+    result = inline_function(5)
+    return result
+```
+
+### Lambda Functions
+
+A lambda function is a small anonymous function defined with the `lambda` keyword. It can have any number of arguments but only one expression.
+
+**Example:**
+
+```python
+square = lambda x: x * x
+result = square(5)
+```
+
+### Anonymous Functions
+
+In Python, anonymous functions are typically lambda functions. They are functions without a name and are often used for short-term tasks.
+
+**Example:**
+
+```python
+result = (lambda x: x * x)(5)
+```
+
+### Comparison
+
+- **Inline Functions**:
+  - Defined within another function.
+  - Useful for encapsulating functionality within a specific scope.
+  - Can be reused within the enclosing function.
+
+- **Lambda Functions**:
+  - Short and concise.
+  - Single expression only.
+  - Can be used wherever a function is required.
+
+- **Anonymous Functions**:
+  - Essentially lambda functions in Python.
+  - Convenient for short-lived operations.
+
+### GitHub Friendly Code Example
+
+```python
+# Inline Function Example
+def main_function():
+    def inline_function(x):
+        return x * x
+    
+    result = inline_function(5)
+    print(f"Inline function result: {result}")
+
+# Lambda Function Example
+square = lambda x: x * x
+print(f"Lambda function result: {square(5)}")
+
+# Anonymous Function Example
+print(f"Anonymous function result: {(lambda x: x * x)(5)}")
+
+# Run examples
+main_function()
+```
+
+Output:
+
+```
+Inline function result: 25
+Lambda function result: 25
+Anonymous function result: 25
+```

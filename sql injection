@@ -1,0 +1,104 @@
+SQL injection is a type of security vulnerability that occurs when an attacker is able to manipulate a SQL query by injecting malicious SQL code into an input field. This can allow the attacker to view, modify, or delete data in a database, bypass authentication mechanisms, and execute administrative operations. SQL injection exploits occur due to improper validation or sanitization of user inputs in SQL queries.
+
+### How SQL Injection Works
+
+When a web application accepts user input and includes it directly in a SQL query without proper sanitization, it opens up the possibility for SQL injection. Here's a basic example:
+
+**Vulnerable Code Example:**
+
+```python
+# Vulnerable to SQL Injection
+def get_user_info(username):
+    query = "SELECT * FROM users WHERE username = '" + username + "'"
+    cursor.execute(query)
+    return cursor.fetchall()
+```
+
+If an attacker provides the input `username' OR '1'='1`, the resulting SQL query would be:
+
+```sql
+SELECT * FROM users WHERE username = 'username' OR '1'='1'
+```
+
+Since `'1'='1'` is always true, this query will return all rows in the `users` table.
+
+### Types of SQL Injection
+
+1. **In-Band SQL Injection**:
+   - The attacker uses the same communication channel to perform the attack and retrieve results.
+   - Example: Error-based SQL injection, Union-based SQL injection.
+
+2. **Inferential (Blind) SQL Injection**:
+   - The attacker sends queries to the database and observes the behavior of the application to infer the structure of the database.
+   - Example: Boolean-based Blind SQL injection, Time-based Blind SQL injection.
+
+3. **Out-of-Band SQL Injection**:
+   - The attacker uses different communication channels to perform the attack and retrieve results.
+   - This type is less common and typically requires specific features of the database server.
+
+### Preventing SQL Injection
+
+1. **Prepared Statements (Parameterized Queries)**:
+   - Use prepared statements with parameterized queries to ensure user input is treated as data and not executable code.
+
+   **Example in Python (using `sqlite3`):**
+
+   ```python
+   def get_user_info(username):
+       query = "SELECT * FROM users WHERE username = ?"
+       cursor.execute(query, (username,))
+       return cursor.fetchall()
+   ```
+
+2. **Stored Procedures**:
+   - Use stored procedures to abstract SQL queries and limit direct interaction with the database.
+
+   **Example in SQL:**
+
+   ```sql
+   CREATE PROCEDURE GetUserInfo(@Username NVARCHAR(50))
+   AS
+   BEGIN
+       SELECT * FROM users WHERE username = @Username
+   END
+   ```
+
+3. **Input Validation**:
+   - Validate and sanitize all user inputs to ensure they conform to expected formats.
+
+4. **Escaping Inputs**:
+   - Use escaping functions provided by database libraries to escape special characters in user inputs.
+
+5. **Least Privilege Principle**:
+   - Use database accounts with the minimum required privileges to reduce the impact of a successful SQL injection attack.
+
+6. **Web Application Firewalls (WAFs)**:
+   - Use WAFs to detect and block SQL injection attempts.
+
+### Example of SQL Injection Attack and Prevention
+
+**Vulnerable PHP Code:**
+
+```php
+<?php
+$username = $_GET['username'];
+$query = "SELECT * FROM users WHERE username = '$username'";
+$result = mysqli_query($conn, $query);
+?>
+```
+
+**Safe PHP Code Using Prepared Statements:**
+
+```php
+<?php
+$username = $_GET['username'];
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+```
+
+### Conclusion
+
+SQL injection is a critical security risk that can lead to severe consequences. By following best practices such as using prepared statements, validating inputs, and adhering to the principle of least privilege, developers can significantly reduce the risk of SQL injection vulnerabilities in their applications.
